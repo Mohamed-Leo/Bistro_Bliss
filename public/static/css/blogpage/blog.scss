@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+// variables-----
+$Blue-100 : #DBEAFE;
+$Neutral-01 : #FFFFFF;
+$Neutral-02 : #F9F9F7;
+$Neutral-03 : #DBDFD0;
+$Neutral-04 : #ADB29E;
+$Neutral-05 : #737865;
+$Neutral-06 : #414536;
+$Neutral-07 : #2C2F24;
+$Neutral-08 : #182226;
+$Template-color-Secondary : #4D592B; 
+$btns-color : #AD343E;
+$back-color : #474747;
+$social-icons : #F9F9F71F;
+$active-color : #DBDFD0; 
+
+body {
+    min-height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+} 
+
+
+
+// global rules----
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+.title {
+    margin: auto;
+    padding: 75px 30px;
+    background-color: $Neutral-02;
+
+    h1 {
+        color: $Neutral-07;
+        text-align: center;
+        font-family: Playfair Display;
+        font-size: 5rem;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    p {
+        width: 55%;
+        margin:  auto;
+        text-align: center;
+        color: $Neutral-06;
+        font-family: DM Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+// media 
+@media (max-width:991px) {
+    .title p {
+        width: 100%;
+    }
+}
+
+
+
+
+.blog-cards {
+    padding: 0 150px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(200px , 1fr));
+    gap: 24px;
+    background-color: $Neutral-02;
+
+    .blgcard {
+        background-color: $Neutral-01;
+        border-radius: 12px;
+        border: 1px solid $Neutral-02;
+        box-shadow: 0px 2.97872px 59.57446px 0px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+
+        .img {
+            height: 180px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                border-radius: 12px 12px 0px 0px;
+            }
+        }
+
+        .blog {
+            padding: 20px;
+
+            h3 {
+                color: $Neutral-05;
+                font-family: DM Sans;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+
+            p {
+                color: $Neutral-07;
+                font-family: DM Sans;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+// media
+@media (max-width:991px) {
+    .blog-cards {
+        padding: 65px 30px;
+    }
+}
+
+
+
+.signleblog {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    z-index: 120;
+    display: none;
+    background-color: #0000007a;
+
+    .align {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid $Neutral-03;
+        overflow-y: scroll;
+        width: 85%;
+        margin: auto;
+        padding: 20px;
+        height: 90%;
+        background-color: $Neutral-02;
+    }
+
+    .img {
+        margin-top: 40px;
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+        }
+    }
+
+    h3 {
+        color: $Neutral-07;
+        font-family: DM Sans;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: -0.72px;
+        margin: 20px 0;
+    }
+    
+    p {
+        color: $Neutral-06;
+        font-family: DM Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    ol {
+        padding: 30px;
+
+        li {
+            margin: 10px 0;
+        }
+    }
+
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}
+
+// media 
+// @media (max-width:768px) {
+//     .signleblog {
+//         // top: 15%;
+//         border: 1px solid red;
+//     }
+// }

@@ -1,0 +1,239 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+  text-decoration: none;
+}
+
+.con-title {
+  margin: auto;
+  padding: 75px 30px;
+  background-color: #F9F9F7;
+}
+.con-title h1 {
+  color: #2C2F24;
+  text-align: center;
+  font-family: Playfair Display;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.con-title p {
+  width: 55%;
+  margin: auto;
+  text-align: center;
+  color: #414536;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .con-title p {
+    width: 100%;
+  }
+}
+.form-container {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+.form-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #F9F9F7;
+  width: 100%;
+  height: 45%;
+}
+.form-container form {
+  width: 60%;
+  border-radius: 16px;
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  box-shadow: 0px 2.97872px 59.57446px 0px rgba(0, 0, 0, 0.08);
+  margin: auto;
+  padding: 50px;
+  position: relative;
+  z-index: 16;
+}
+.form-container form .name-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.form-container form .errors {
+  margin-bottom: 24px;
+  color: #AD343E;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.form-container form .errors ul {
+  list-style: none;
+}
+.form-container form .name-email label,
+.form-container form .subject label,
+.form-container form .message label {
+  width: calc(50% - 12px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #2C2F24;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+}
+.form-container form .name-email label input,
+.form-container form .name-email label textarea,
+.form-container form .subject label input,
+.form-container form .subject label textarea,
+.form-container form .message label input,
+.form-container form .message label textarea {
+  border-radius: 72px;
+  border: 1px solid #DBDFD0;
+  background: #FFFFFF;
+  padding: 10px 24px;
+  color: #2C2F24;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  transition: 0.5s;
+  outline: none;
+}
+.form-container form .name-email label textarea,
+.form-container form .subject label textarea,
+.form-container form .message label textarea {
+  resize: none;
+  border-radius: 10px;
+  color: #737865;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  height: 150px;
+}
+.form-container form .subject label {
+  width: 100%;
+  margin: 24px 0;
+}
+.form-container form .message label {
+  width: 100%;
+}
+.form-container form .submit input {
+  display: block;
+  width: 100%;
+  padding: 15px 24px;
+  gap: 10px;
+  margin-top: 24px;
+  border-radius: 118px;
+  background: #AD343E;
+  color: #FFFFFF;
+  font-family: DM Sans;
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.form-container form .submit input:hover {
+  opacity: 1;
+}
+
+@media (max-width: 991px) {
+  form {
+    width: 80% !important;
+  }
+}
+@media (max-width: 600px) {
+  form {
+    width: 90% !important;
+    padding: 25px !important;
+  }
+  form .name-email {
+    flex-direction: column;
+  }
+  form .name-email label {
+    width: 100% !important;
+  }
+}
+.contact-info {
+  padding: 30px 150px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+.contact-info .box {
+  width: calc(33.3333333333% - 80px);
+}
+.contact-info .box h3 {
+  color: #2C2F24;
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.contact-info .box p {
+  color: #AD343E;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.72px;
+}
+.contact-info .hours p,
+.contact-info .location p {
+  font-size: 18px;
+  color: #2C2F24;
+}
+
+@media (max-width: 991px) {
+  .contact-info {
+    padding: 0 30px 80px;
+  }
+}
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .contact-info .box {
+    width: 100%;
+    text-align: center;
+  }
+}/*# sourceMappingURL=contact.css.map */

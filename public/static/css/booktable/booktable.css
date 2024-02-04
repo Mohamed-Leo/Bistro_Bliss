@@ -1,0 +1,204 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  margin: auto;
+  padding: 75px 30px;
+  background-color: #F9F9F7;
+}
+.title h1 {
+  color: #2C2F24;
+  text-align: center;
+  font-family: Playfair Display;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.title p {
+  width: 55%;
+  margin: auto;
+  text-align: center;
+  color: #414536;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .title p {
+    width: 100%;
+  }
+}
+.form-con {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  background-color: #F9F9F7;
+}
+.form-con form {
+  width: 60%;
+  border-radius: 16px;
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  box-shadow: 0px 2.97872px 59.57446px 0px rgba(0, 0, 0, 0.08);
+  margin: auto;
+  padding: 50px;
+  position: relative;
+  z-index: 16;
+}
+.form-con form .errors {
+  margin-bottom: 24px;
+  color: #AD343E;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.form-con form .errors ul {
+  list-style: none;
+}
+.form-con form .date-time,
+.form-con form .name-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.form-con form .date-time label,
+.form-con form .name-email label,
+.form-con form .phone label,
+.form-con form .persons label {
+  width: calc(50% - 12px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #2C2F24;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+}
+.form-con form .date-time label input,
+.form-con form .date-time label select,
+.form-con form .name-email label input,
+.form-con form .name-email label select,
+.form-con form .phone label input,
+.form-con form .phone label select,
+.form-con form .persons label input,
+.form-con form .persons label select {
+  border-radius: 72px;
+  border: 1px solid #DBDFD0;
+  background: #FFFFFF;
+  padding: 10px 24px;
+  color: #2C2F24;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  transition: 0.5s;
+  outline: none;
+}
+.form-con form .date-time label input:focus,
+.form-con form .date-time label select:focus,
+.form-con form .name-email label input:focus,
+.form-con form .name-email label select:focus,
+.form-con form .phone label input:focus,
+.form-con form .phone label select:focus,
+.form-con form .persons label input:focus,
+.form-con form .persons label select:focus {
+  border: 1px solid #AD343E;
+}
+.form-con form .name-email, .form-con form .phone {
+  margin: 24px 0;
+}
+.form-con form .persons label, .form-con form .phone label {
+  width: 100%;
+}
+.form-con form .submit input {
+  display: flex;
+  padding: 15px 24px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 118px;
+  background: #AD343E;
+  color: #FFFFFF;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: 0.5s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.form-con form .submit input:hover {
+  opacity: 1;
+}
+.form-con .img {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+}
+.form-con .img img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  form {
+    width: 80% !important;
+  }
+}
+@media (max-width: 600px) {
+  form {
+    width: 90% !important;
+    padding: 25px !important;
+  }
+  form .date-time,
+  form .name-email {
+    flex-direction: column;
+  }
+  form .date-time label,
+  form .name-email label {
+    width: 100% !important;
+  }
+}/*# sourceMappingURL=booktable.css.map */

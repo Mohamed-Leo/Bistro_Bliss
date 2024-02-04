@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+// variables-----
+$Blue-100 : #DBEAFE;
+$Neutral-01 : #FFFFFF;
+$Neutral-02 : #F9F9F7;
+$Neutral-03 : #DBDFD0;
+$Neutral-04 : #ADB29E;
+$Neutral-05 : #737865;
+$Neutral-06 : #414536;
+$Neutral-07 : #2C2F24;
+$Neutral-08 : #182226;
+$Template-color-Secondary : #4D592B;
+$btns-color : #AD343E;
+$back-color : #474747;
+$social-icons : #F9F9F71F;
+$active-color : #DBDFD0;
+
+
+body {
+    min-height: 100vh;
+    background: url('https://c1.wallpaperflare.com/preview/859/388/912/interior-table-coffee-bar.jpg') no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000088;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+
+
+
+// global rules----
+a {
+    text-decoration: none;
+    display: block;
+}
+
+.container {
+    width: 85%;
+    background-color: #2f36408c;
+    border: 1px solid $Neutral-03;
+    border-radius: 5px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    z-index: 100;
+
+    h1 {
+        text-align: center;
+        font-family: Playfair Display;
+        letter-spacing: .4rem;
+        padding: 20px 10px;
+        color: $Neutral-01;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit , minmax(500px , 1fr));
+        gap: 20px;
+        padding: 20px;
+
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border: 1px solid $Neutral-03;
+            padding: 20px;
+            border-radius: 12px;
+            transition: .4s;
+
+            &:hover {
+                background-color: #AD343E;
+
+                .text {
+                    h3,p {
+                        color: $Neutral-01;
+                    }
+                }
+            }
+
+            .img {
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+                border-radius: 50%;
+                border: 1px solid $Neutral-03;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .text {
+                width: calc(90% - 25px);
+
+                h3 {
+                    font-family: DM Sans;
+                    color: $Neutral-03;
+                    margin-bottom: 10px;
+                    font-size: 1.5rem;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    color: $Neutral-03;
+                    font-size: 1.2rem;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:700px) {
+    .container .cards {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

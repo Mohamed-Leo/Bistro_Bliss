@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// variables-----
+$Blue-100 : #DBEAFE;
+$Neutral-01 : #FFFFFF;
+$Neutral-02 : #F9F9F7;
+$Neutral-03 : #DBDFD0;
+$Neutral-04 : #ADB29E;
+$Neutral-05 : #737865;
+$Neutral-06 : #414536;
+$Neutral-07 : #2C2F24;
+$Neutral-08 : #182226;
+$Template-color-Secondary : #4D592B;
+$btns-color : #AD343E;
+$back-color : #474747;
+$social-icons : #F9F9F71F;
+$active-color : #DBDFD0;
+
+
+body {
+    min-height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.profile-con {
+    background-color: $Neutral-02;
+
+    .sections-con {
+
+        h3 {
+            color: $Neutral-08;
+        }
+
+        p {
+            color: $back-color;
+        }
+
+        form {
+
+            > :nth-child(1) {
+                background-color: $Neutral-01;
+            }
+
+            label {
+                color: #000;
+            }
+
+            input {
+                border-radius: 30px;
+                transition: .5s;
+                background-color: transparent;
+                color: #000;
+            }
+
+            > :nth-child(2) {
+                background-color: $Neutral-01;
+                border-top: 1px solid $Neutral-03;
+
+                button[type="submit"] {
+                    background-color: $Neutral-08;
+                    color: $Neutral-01;
+                    transition: .4s;
+                    opacity: .7;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        div[class='px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg'] {
+            background-color: #2d3436;
+
+            h3,p,div {
+                color: $Neutral-01;
+            }
+
+            button {
+                background-color: $Neutral-08;
+                    color: $Neutral-01;
+                    transition: .4s;
+                    opacity: .7;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+            }
+
+            button.delete {
+                background-color: $btns-color;
+                color: $Neutral-01;
+            }
+        }
+
+        .jetstream-modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .twofactor-auth {
+                background-color: #353b48;
+
+                input {
+                    border-radius: 30px;
+                    transition: .4s;
+                    background-color: transparent;
+                    box-shadow: inset 18px 18px 36px #1d2028,
+            inset -18px -18px 36px #4d5668;
+                }
+
+                .flex {
+                    background-color: #2f3640;
+                }
+            }
+        }
+    }
+}

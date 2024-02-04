@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: url("https://c1.wallpaperflare.com/preview/859/388/912/interior-table-coffee-bar.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.container {
+  width: 85%;
+  background-color: rgba(47, 54, 64, 0.5490196078);
+  border: 1px solid #DBDFD0;
+  border-radius: 5px;
+  max-height: 90vh;
+  overflow-y: scroll;
+  z-index: 100;
+}
+.container h1 {
+  text-align: center;
+  font-family: Playfair Display;
+  letter-spacing: 0.4rem;
+  padding: 20px 10px;
+  color: #FFFFFF;
+}
+.container .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.container .cards a {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid #DBDFD0;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.4s;
+}
+.container .cards a:hover {
+  background-color: #AD343E;
+}
+.container .cards a:hover .text h3, .container .cards a:hover .text p {
+  color: #FFFFFF;
+}
+.container .cards a .img {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #DBDFD0;
+}
+.container .cards a .img img {
+  width: 100%;
+  height: 100%;
+}
+.container .cards a .text {
+  width: calc(90% - 25px);
+}
+.container .cards a .text h3 {
+  font-family: DM Sans;
+  color: #DBDFD0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.container .cards a .text p {
+  color: #DBDFD0;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+@media (max-width: 700px) {
+  .container .cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .container .cards a {
+    flex-direction: column;
+    text-align: center;
+  }
+}/*# sourceMappingURL=admin.css.map */

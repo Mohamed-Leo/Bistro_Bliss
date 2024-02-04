@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.profile-con {
+  background-color: #F9F9F7;
+}
+.profile-con .sections-con h3 {
+  color: #182226;
+}
+.profile-con .sections-con p {
+  color: #474747;
+}
+.profile-con .sections-con form > :nth-child(1) {
+  background-color: #FFFFFF;
+}
+.profile-con .sections-con form label {
+  color: #000;
+}
+.profile-con .sections-con form input {
+  border-radius: 30px;
+  transition: 0.5s;
+  background-color: transparent;
+  color: #000;
+}
+.profile-con .sections-con form > :nth-child(2) {
+  background-color: #FFFFFF;
+  border-top: 1px solid #DBDFD0;
+}
+.profile-con .sections-con form > :nth-child(2) button[type=submit] {
+  background-color: #182226;
+  color: #FFFFFF;
+  transition: 0.4s;
+  opacity: 0.7;
+}
+.profile-con .sections-con form > :nth-child(2) button[type=submit]:hover {
+  opacity: 1;
+}
+.profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] {
+  background-color: #2d3436;
+}
+.profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] h3, .profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] p, .profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] div {
+  color: #FFFFFF;
+}
+.profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] button {
+  background-color: #182226;
+  color: #FFFFFF;
+  transition: 0.4s;
+  opacity: 0.7;
+}
+.profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] button:hover {
+  opacity: 1;
+}
+.profile-con .sections-con div[class="px-4 py-5 sm:p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg"] button.delete {
+  background-color: #AD343E;
+  color: #FFFFFF;
+}
+.profile-con .sections-con .jetstream-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-con .sections-con .jetstream-modal .twofactor-auth {
+  background-color: #353b48;
+}
+.profile-con .sections-con .jetstream-modal .twofactor-auth input {
+  border-radius: 30px;
+  transition: 0.4s;
+  background-color: transparent;
+  box-shadow: inset 18px 18px 36px #1d2028, inset -18px -18px 36px #4d5668;
+}
+.profile-con .sections-con .jetstream-modal .twofactor-auth .flex {
+  background-color: #2f3640;
+}/*# sourceMappingURL=profile.css.map */

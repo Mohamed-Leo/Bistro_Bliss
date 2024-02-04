@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.notify-container {
+  background-color: #F9F9F7;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.notify-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 50px 0;
+  color: #34495e;
+}
+.notify-container .box {
+  background-color: #FFFFFF;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 85%;
+  box-shadow: 0px 2.97872px 59.57446px 0px rgba(0, 0, 0, 0.08);
+}
+.notify-container .box .details {
+  text-transform: capitalize;
+}
+.notify-container .box .details h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #182226;
+  text-align: center;
+}
+.notify-container .box .details p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+.notify-container .box .details h4 {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+.notify-container .box .details ul {
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+}
+.notify-container .box .details ul li {
+  background-color: #2980b9;
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-transform: none;
+}
+.notify-container .box .details ul .accepted {
+  background-color: #27ae60;
+}
+.notify-container .box .details ul .rejected {
+  background-color: #c0392b;
+}
+.notify-container .box .details .btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+.notify-container .box .details .btns a {
+  display: block;
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 260px;
+  height: 50px;
+  text-align: center;
+  border-radius: 12px;
+  color: #FFFFFF;
+  transition: 0.4s;
+  opacity: 0.7;
+}
+.notify-container .box .details .btns a:hover {
+  opacity: 1;
+}
+.notify-container .box .details .btns a i {
+  margin-right: 5px;
+}
+.notify-container .box .details .btns .cancel a {
+  background-color: #27ae60;
+}/*# sourceMappingURL=mybookings.css.map */
