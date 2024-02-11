@@ -17,13 +17,13 @@ class AdminsSeeder extends Seeder
         User::create([
             "name"=> "mohamed",
             "email"=> "mohamed-admin@gmail.com",
-            "password"=> Hash::make('mohamed@admin-189'),
+            "password"=> Hash::make('moh%aMed@Admin-189'),
             'role'=> 'admin',
         ]);
         User::create([
             "name"=> "sameh",
             "email"=> "sameh-admin@gmail.com",
-            "password"=> Hash::make('sameh@admin-120'),
+            "password"=> Hash::make('sa%mEh@Admin-120'),
             'role'=> 'admin',
         ]);
     }

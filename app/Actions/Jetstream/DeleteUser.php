@@ -13,20 +13,11 @@ class DeleteUser implements DeletesUsers
      */
     public function delete(User $user): void
     {
-        // $user->deleteProfilePhoto();
-        // $user->tokens->each->delete();
-        // $user->delete();
 
-        // check if there are any bookings
-        $userBookings = bookings::get()->where("user_id" , auth()->user()->id);
-
-        if($userBookings) {
-            return $userBookings;
-        }
-        else {
-            $user->deleteProfilePhoto();
-            $user->tokens->each->delete();
-            $user->delete();
-        }
+        // check if there are any bookings and delete them before deleting user
+        bookings::where("user_id" , $user->id)->delete();
+        $user->deleteProfilePhoto();
+        $user->tokens->each->delete();
+        $user->delete();
     }
 }
