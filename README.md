@@ -7,61 +7,53 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+Bistro Bliss
+Bistro Bliss is a Laravel-based backend project designed to streamline restaurant operations, providing a robust and efficient system for managing orders, inventory, and customer interactions.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Features
+Order Management: Handle customer orders with ease, tracking status and updates in real-time.
+Inventory Control: Efficiently manage stock levels and track product usage.
+Customer Management: Maintain detailed records of customer information and preferences.
+Responsive Design: Ensures accessibility across all device types with an intuitive user interface.
+Analytics and Reporting: Generate insightful reports to aid in decision-making and business optimization.
+Technologies Used
+Laravel: For building a robust and scalable backend.
+Blade: To create dynamic and reusable templates.
+SCSS/CSS: For styling and responsive design.
+JavaScript: Enhancing interactivity and user experience.
+Installation and Setup
+Clone the repository:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+bash
+Copy code
+git clone https://github.com/Mohamed-Leo/Bistro_Bliss.git
+cd Bistro_Bliss
+Install dependencies:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+bash
+Copy code
+composer install
+npm install
+Set up the environment:
 
-## Learning Laravel
+Copy the .env.example file to .env and update database credentials.
+Run migrations:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+bash
+Copy code
+php artisan migrate
+Start the development server:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+bash
+Copy code
+php artisan serve
+Open your browser and navigate to http://localhost:8000 to access the application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Contributing
+Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
 
-## Laravel Sponsors
+License
+This project is licensed under the MIT License.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# Bistro_Bliss" 
+Live Demo
+Check out the live demo of the project here.
