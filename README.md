@@ -7,53 +7,66 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Bistro Bliss
-Bistro Bliss is a Laravel-based backend project designed to streamline restaurant operations, providing a robust and efficient system for managing orders, inventory, and customer interactions.
+Here’s a professional README file for your Bistro Bliss project:
 
-Features
-Order Management: Handle customer orders with ease, tracking status and updates in real-time.
-Inventory Control: Efficiently manage stock levels and track product usage.
-Customer Management: Maintain detailed records of customer information and preferences.
-Responsive Design: Ensures accessibility across all device types with an intuitive user interface.
-Analytics and Reporting: Generate insightful reports to aid in decision-making and business optimization.
-Technologies Used
-Laravel: For building a robust and scalable backend.
-Blade: To create dynamic and reusable templates.
-SCSS/CSS: For styling and responsive design.
-JavaScript: Enhancing interactivity and user experience.
-Installation and Setup
-Clone the repository:
+---
 
-bash
-Copy code
-git clone https://github.com/Mohamed-Leo/Bistro_Bliss.git
-cd Bistro_Bliss
-Install dependencies:
+# Bistro Bliss
 
-bash
-Copy code
-composer install
-npm install
-Set up the environment:
+**Bistro Bliss** is a Laravel-based backend project designed to streamline restaurant operations, providing a robust and efficient system for managing orders, inventory, and customer interactions.
 
-Copy the .env.example file to .env and update database credentials.
-Run migrations:
+## Features
 
-bash
-Copy code
-php artisan migrate
-Start the development server:
+- **Order Management**: Handle customer orders with ease, tracking status and updates in real-time.
+- **Inventory Control**: Efficiently manage stock levels and track product usage.
+- **Customer Management**: Maintain detailed records of customer information and preferences.
+- **Responsive Design**: Ensures accessibility across all device types with an intuitive user interface.
+- **Analytics and Reporting**: Generate insightful reports to aid in decision-making and business optimization.
 
-bash
-Copy code
-php artisan serve
-Open your browser and navigate to http://localhost:8000 to access the application.
+## Technologies Used
 
-Contributing
+- **Laravel**: For building a robust and scalable backend.
+- **Blade**: To create dynamic and reusable templates.
+- **SCSS/CSS**: For styling and responsive design.
+- **JavaScript**: Enhancing interactivity and user experience.
+
+## Installation and Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Mohamed-Leo/Bistro_Bliss.git
+   cd Bistro_Bliss
+   ```
+
+2. Install dependencies:
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. Set up the environment:
+   - Copy the `.env.example` file to `.env` and update database credentials.
+
+4. Run migrations:
+   ```bash
+   php artisan migrate
+   ```
+
+5. Start the development server:
+   ```bash
+   php artisan serve
+   ```
+
+6. Open your browser and navigate to `http://localhost:8000` to access the application.
+
+## Contributing
+
 Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
 
-License
+## License
+
 This project is licensed under the MIT License.
 
-Live Demo
-Check out the live demo of the project here.
+## Live Demo
+
+Check out the live demo of the project [here](https://mohamed-leo.github.io/Bistro_Bliss/).
