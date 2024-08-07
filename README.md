@@ -64,7 +64,3 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 ## License
 
 This project is licensed under the MIT License.
-
-## Live Demo
-
-Check out the live demo of the project [here](https://mohamed-leo.github.io/Bistro_Bliss/).
