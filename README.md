@@ -7,8 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Here’s a professional README file for your Bistro Bliss project:
-
 ---
 
 # Bistro Bliss
