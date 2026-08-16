@@ -1,111 +1,369 @@
 # Bistro Bliss
 
-**A full-stack restaurant booking and management platform built with Laravel 10, Blade, MySQL, Tailwind CSS, Jetstream, Sanctum and Socialite.**
+**Full-stack restaurant booking and management platform built with Laravel 10, Blade, MySQL, Eloquent ORM, Jetstream, Sanctum, Socialite, Livewire, Tailwind CSS, and Vite.**
 
-Bistro Bliss combines a customer-facing restaurant experience with an authenticated administration panel for managing menus, reservations, users and customer inquiries.
+Bistro Bliss combines a customer-facing restaurant website with authenticated customer functionality and a protected administration panel for menu management, reservations, users, notifications, and contact inquiries.
+
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [User Roles and Experiences](#user-roles-and-experiences)
+- [Customer Experience](#customer-experience)
+- [Administration Experience](#administration-experience)
+- [Reservation Lifecycle](#reservation-lifecycle)
+- [Menu Management](#menu-management)
+- [Authentication and Accounts](#authentication-and-accounts)
+- [Social Authentication](#social-authentication)
+- [Notifications](#notifications)
+- [Contact Management](#contact-management)
+- [Technology Stack](#technology-stack)
+- [Laravel Architecture](#laravel-architecture)
+- [Routes and Access Boundaries](#routes-and-access-boundaries)
+- [Database and Eloquent](#database-and-eloquent)
+- [Soft Delete Lifecycle](#soft-delete-lifecycle)
+- [Testing](#testing)
+- [Local Development](#local-development)
+- [Environment Configuration](#environment-configuration)
+- [Frontend Build](#frontend-build)
+- [Production Preparation](#production-preparation)
+- [Engineering Conventions](#engineering-conventions)
+- [Project Status](#project-status)
+- [License](#license)
 
 ---
 
 ## Project Overview
 
-The application supports two main user experiences:
+Bistro Bliss is a complete Laravel application rather than a static restaurant template.
 
-### Customer Experience
+The project demonstrates a connected set of real application concerns:
 
-- Browse the restaurant menu by category
-- Explore public pages such as About and Blogs
-- Create table reservations
-- Review personal bookings
-- Cancel eligible bookings
-- Receive and manage booking notifications
-- Submit contact inquiries
-- Sign in with supported social providers
-
-### Administration Experience
-
-- Access a middleware-protected admin panel
-- Create, update and manage menu items
-- Soft-delete menu items and restore them later
-- Permanently delete archived items when required
-- Review registered users
-- Review customer reservations
-- Accept or reject bookings
-- Review contact-form submissions
-
-## Key Workflows
-
-### Reservation Lifecycle
-
-```text
-Customer submits reservation
-        ↓
-Reservation is stored with an initial status
-        ↓
-Admin reviews the booking
-        ↓
-Admin accepts or rejects it
-        ↓
-Customer receives a status notification
-```
-
-### Menu Management
-
-```text
-Admin creates or edits a menu item
-        ↓
-Item is available to the public menu
-        ↓
-Admin can soft-delete unavailable content
-        ↓
-Deleted items can be restored or permanently removed
-```
-
-## Verified Application Routes
-
-The Laravel route layer includes dedicated flows for:
-
-- Homepage and about page
-- Menu and menu categories
-- Blogs
-- Booking creation
-- Personal bookings and cancellation
+- Public restaurant pages
+- Menu/category browsing
+- Customer registration and authentication
+- Table reservations
+- Personal booking management
+- Reservation approval/rejection
 - Notifications
-- Contact form
-- Admin dashboard
-- Menu CRUD
-- Soft-delete / restore / force-delete operations
+- Contact inquiries
+- Social authentication
+- Admin-only management routes
+- Menu CRUD with soft deletion and restoration
 - User administration
-- Booking approval/rejection
-- Contact inquiry administration
-- Google authentication
-- Facebook authentication
+- Framework-level authentication tests
 
-The administration routes are grouped behind a custom `AdminPanelMiddleware`.
+The application uses Laravel's server-rendered architecture, Blade templates, Eloquent models, and framework authentication ecosystem to keep backend and frontend behavior integrated in one codebase.
+
+---
+
+## User Roles and Experiences
+
+The application can be understood through three access levels.
+
+### Public visitor
+
+Can access public content such as:
+
+- Homepage
+- About
+- Menu
+- Menu categories
+- Blogs
+- Contact
+- Authentication entry points
+
+### Authenticated customer
+
+Can access account-related functionality such as:
+
+- Reservations
+- Personal bookings
+- Booking cancellation where allowed
+- Notifications
+- Profile/security features provided by Jetstream
+
+### Administrator
+
+Can access protected administration functionality such as:
+
+- Menu management
+- Deleted menu records
+- User administration
+- Reservation review
+- Accept/reject actions
+- Contact-message review
+
+Administration routes are protected through a custom `AdminPanelMiddleware`.
+
+---
+
+## Customer Experience
+
+### Public pages
+
+The restaurant experience includes public routes for:
+
+- Home
+- About
+- Menu
+- Blogs
+- Contact
+
+### Menu discovery
+
+Public menu browsing includes category-oriented presentation such as:
+
+- Breakfast
+- Main dishes
+- Drinks
+- Desserts
+
+### Booking
+
+Customers can create restaurant reservations through the booking workflow.
+
+### Personal bookings
+
+Authenticated users can access their own bookings and cancel eligible reservations through dedicated routes.
+
+---
+
+## Administration Experience
+
+The administration panel centralizes operational restaurant workflows.
+
+### Menu administration
+
+Administrators can:
+
+- Create menu items
+- Update menu items
+- View/manage menu records
+- Soft-delete items
+- View deleted items
+- Restore deleted items
+- Permanently delete archived items
+- Perform bulk deletion where implemented
+
+### User administration
+
+Administrators can review/manage registered user records through protected routes.
+
+### Booking administration
+
+Administrators can:
+
+- Review customer reservations
+- Accept bookings
+- Reject bookings
+
+### Contact administration
+
+Customer inquiries submitted through the public site can be reviewed from the protected admin area.
+
+---
+
+## Reservation Lifecycle
+
+A simplified reservation lifecycle is:
+
+```text
+Customer submits booking
+        ↓
+Reservation is persisted
+        ↓
+Admin reviews reservation
+        ↓
+Admin accepts or rejects
+        ↓
+Booking status changes
+        ↓
+Customer receives/reads related notification state
+```
+
+### Customer-side responsibilities
+
+- Enter reservation information
+- Submit booking
+- Review own bookings
+- Cancel when allowed
+
+### Admin-side responsibilities
+
+- Review pending reservations
+- Change reservation status
+- Communicate resulting state through the application's notification behavior
+
+---
+
+## Menu Management
+
+The menu domain demonstrates more than simple create/update behavior.
+
+### Standard CRUD
+
+```text
+Create item
+   ↓
+Display in menu/admin view
+   ↓
+Update when required
+```
+
+### Archive lifecycle
+
+```text
+Active item
+   ↓
+Soft delete
+   ↓
+Archived/deleted view
+   ├─ restore
+   └─ force delete
+```
+
+Soft deletion allows content to be removed from active use without immediately destroying the database record.
+
+This is useful for restaurant products that may need to be temporarily removed or restored later.
+
+---
+
+## Authentication and Accounts
+
+The project uses Laravel's authentication ecosystem:
+
+- **Laravel Jetstream**
+- **Laravel Fortify** through Jetstream
+- **Laravel Sanctum**
+- **Livewire**
+
+The application includes framework-level account capabilities and test coverage for areas such as:
+
+- Login/authentication
+- Registration
+- Email verification
+- Password reset
+- Password confirmation
+- Password update
+- Profile update
+- Browser sessions
+- API tokens
+- Two-factor authentication configuration
+- Account deletion
+
+These features provide a stronger account foundation than manually implementing every authentication flow from scratch.
+
+---
+
+## Social Authentication
+
+The application uses **Laravel Socialite** for third-party authentication.
+
+Implemented social providers include:
+
+- Google
+- Facebook
+
+Typical flow:
+
+```text
+User selects provider
+   ↓
+Redirect to provider
+   ↓
+Provider authenticates user
+   ↓
+Application callback
+   ↓
+Resolve/create local account
+   ↓
+Authenticated session
+```
+
+Provider credentials belong in environment configuration and must never be committed to source control.
+
+---
+
+## Notifications
+
+The application includes routes for notification behavior such as:
+
+- Listing/viewing notifications
+- Marking notifications as read
+- Deleting notifications
+
+Notifications support user awareness of application events such as reservation status changes.
+
+---
+
+## Contact Management
+
+Public visitors can submit contact inquiries.
+
+The application separates:
+
+- Public contact submission
+- Protected administration review
+
+This allows the restaurant team to review incoming messages without exposing administration interfaces publicly.
+
+The backend stack also includes Symfony Mailgun mailer support for email-related delivery workflows.
+
+---
 
 ## Technology Stack
 
-| Area | Technology |
-| --- | --- |
-| Backend | Laravel 10 / PHP 8.1+ |
-| Server-rendered UI | Blade templates |
-| Database | MySQL through Eloquent ORM |
-| Authentication | Laravel Jetstream, Fortify, Sanctum |
-| Social login | Laravel Socialite |
-| Frontend styling | Tailwind CSS 3 |
-| Asset pipeline | Vite 4 |
-| Interactive components | Livewire 3 / JavaScript where required |
-| Email integration | Symfony Mailgun Mailer |
-| Testing | PHPUnit / Laravel Feature Tests |
+### Backend
 
-## Application Architecture
+- **PHP 8.1+**
+- **Laravel 10.10+**
+- **Eloquent ORM**
+- **MySQL**
 
-The project follows a conventional Laravel application structure:
+### Authentication
+
+- **Laravel Jetstream 4.1**
+- **Laravel Sanctum 3.3**
+- **Laravel Socialite 5.10**
+- **Livewire 3**
+
+### Server-rendered Frontend
+
+- **Blade**
+- **Tailwind CSS 3.1**
+- **Vite 4**
+- **Axios**
+
+### Mail and HTTP
+
+- **Guzzle**
+- **Symfony HTTP Client**
+- **Symfony Mailgun Mailer**
+
+### Development and Testing
+
+- **PHPUnit 10**
+- **Laravel Pint**
+- **Laravel Sail**
+- **Mockery**
+- **Collision**
+- **Faker**
+
+Exact PHP dependencies are defined in `composer.json`. Frontend tooling versions are defined in `package.json`.
+
+---
+
+## Laravel Architecture
+
+The project follows the conventional Laravel application structure.
 
 ```text
 app/
 ├── Http/
-│   ├── Controllers/        # Customer and administration workflows
-│   └── Middleware/         # Access-control middleware
+│   ├── Controllers/        # Customer/admin request handling
+│   └── Middleware/         # Access control such as AdminPanelMiddleware
 ├── Models/                 # Eloquent models
 ├── Mail/                   # Mail-related classes
 └── ...
@@ -114,7 +372,7 @@ resources/
 └── views/                  # Blade templates
 
 routes/
-└── web.php                 # Public, authenticated and admin routes
+└── web.php                 # Public/authenticated/admin routes
 
 database/
 ├── migrations/
@@ -126,59 +384,148 @@ tests/
 └── Unit/
 ```
 
-## Authentication & Account Features
+### Responsibility boundaries
 
-The project uses Laravel's authentication ecosystem and includes test coverage for several account-level behaviors, including:
+#### Controllers
+Coordinate HTTP requests and application behavior.
 
-- Authentication
-- Registration
-- Email verification
-- Password reset and password confirmation
-- Password updates
-- Profile information
-- API token creation/deletion and permissions
-- Browser sessions
-- Two-factor authentication settings
-- Account deletion
+#### Models
+Represent persistent restaurant/account entities through Eloquent.
 
-Social-authentication routes are also implemented for **Google** and **Facebook** through Laravel Socialite.
+#### Middleware
+Protect admin-only routes and other request boundaries.
 
-## Menu Management
+#### Blade views
+Render server-side UI for public/customer/admin experiences.
 
-The admin workflow supports:
+#### Migrations
+Track database schema evolution.
 
-- Creating menu items
-- Updating existing items
-- Viewing menu records
-- Soft deletion
-- Viewing deleted items
-- Restoring deleted items
-- Force deletion
-- Bulk deletion
+---
 
-Public menu routes expose dedicated categories including breakfast, main dishes, drinks and desserts.
+## Routes and Access Boundaries
 
-## Booking Management
+The route layer includes flows for:
 
-Customers can create reservations and access a personal bookings area. Administrators can review incoming bookings and change their status through dedicated accept/reject actions.
+- Homepage
+- About
+- Menu and menu categories
+- Blogs
+- Booking creation
+- Personal bookings
+- Booking cancellation
+- Notifications
+- Contact
+- Admin dashboard
+- Menu CRUD
+- Soft-delete / restore / force-delete
+- User administration
+- Booking accept/reject
+- Contact inquiry administration
+- Google authentication
+- Facebook authentication
 
-The project also includes notification routes so customers can view, read and delete stored notifications related to application events.
+### Admin protection
 
-## Contact & Communication
+Administration routes are grouped behind `AdminPanelMiddleware`.
 
-A dedicated contact workflow allows public users to submit inquiries. Administrators can review those messages from the protected admin area.
+This separation matters because route visibility alone is not sufficient; sensitive administration actions should always be protected on the server.
 
-The application also includes email-support dependencies through Symfony's Mailgun integration.
+---
+
+## Database and Eloquent
+
+The application uses MySQL through Laravel's Eloquent ORM.
+
+### Persistence concerns include
+
+- Users
+- Menu items
+- Reservations/bookings
+- Contact inquiries
+- Notifications
+- Authentication/account-related tables
+
+### Database workflow
+
+```text
+Migration
+   ↓
+Database schema
+   ↓
+Eloquent model
+   ↓
+Controller/domain action
+   ↓
+Blade/admin/customer experience
+```
+
+Migrations should be committed alongside schema changes so environments remain reproducible.
+
+---
+
+## Soft Delete Lifecycle
+
+Menu soft deletion is a notable project workflow.
+
+### Why use soft deletes
+
+- Prevent accidental permanent removal
+- Allow administrative recovery
+- Preserve historical records
+- Support separate archived/deleted views
+
+### Lifecycle
+
+```text
+Active menu item
+   ↓
+Soft delete
+   ↓
+Hidden from active collection
+   ↓
+Admin archived view
+   ├─ restore → active again
+   └─ force delete → permanently removed
+```
+
+Force deletion should be treated as destructive and intentionally restricted to admin workflows.
+
+---
 
 ## Testing
 
-Laravel Feature Tests are included for the authentication/account foundation of the application.
+Laravel feature tests cover important account/authentication behavior.
 
-Run the test suite with:
+### Run application tests
 
 ```bash
 php artisan test
 ```
+
+### PHPUnit directly
+
+```bash
+./vendor/bin/phpunit
+```
+
+### Useful test areas in the project foundation
+
+- Authentication
+- Registration
+- Email verification
+- Password reset
+- Password confirmation
+- Profile update
+- Password update
+- API tokens
+- Browser sessions
+- Two-factor authentication
+- Account deletion
+
+For future extension, high-value restaurant-specific tests would include reservation authorization/status transitions and admin-only menu operations.
+
+---
 
 ## Local Development
 
@@ -189,21 +536,40 @@ php artisan test
 - Node.js / npm
 - MySQL
 
-### Install dependencies
+### Clone
+
+```bash
+git clone https://github.com/Mohamed-Leo/Bistro_Bliss.git
+cd Bistro_Bliss
+```
+
+### Install PHP dependencies
 
 ```bash
 composer install
+```
+
+### Install frontend dependencies
+
+```bash
 npm install
 ```
 
-### Configure the application
+### Create environment file
 
 ```bash
 cp .env.example .env
+```
+
+### Generate application key
+
+```bash
 php artisan key:generate
 ```
 
-Update the database and any optional social/email credentials in `.env`.
+### Configure database
+
+Update the MySQL connection values inside `.env`.
 
 ### Run migrations
 
@@ -211,23 +577,110 @@ Update the database and any optional social/email credentials in `.env`.
 php artisan migrate
 ```
 
-### Start development servers
+### Start Laravel
 
 ```bash
 php artisan serve
+```
+
+### Start frontend development build
+
+```bash
 npm run dev
 ```
 
-## Production Build
+---
+
+## Environment Configuration
+
+Common configuration categories include:
+
+```env
+APP_URL=
+DB_CONNECTION=mysql
+DB_HOST=
+DB_PORT=3306
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+FACEBOOK_CLIENT_ID=
+FACEBOOK_CLIENT_SECRET=
+```
+
+Mail/provider configuration may also be required depending on enabled workflows.
+
+Exact variables should be verified against `.env.example` and current application configuration.
+
+### Environment rules
+
+- Never commit real database credentials.
+- Never commit social-provider secrets.
+- Keep local/production credentials separate.
+- Use production-safe mail/session settings before deployment.
+
+---
+
+## Frontend Build
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Production assets
 
 ```bash
 npm run build
 ```
 
-## Why This Project Matters
+The frontend pipeline uses Vite through Laravel's Vite integration.
 
-Bistro Bliss demonstrates a complete Laravel workflow beyond static pages: authenticated users, role-restricted administration, relational data, reservation lifecycle handling, menu CRUD with soft deletion, notifications, social authentication, contact management, and framework-level testing.
+---
+
+## Production Preparation
+
+Before deployment verify:
+
+- Environment values are production-safe.
+- `APP_KEY` exists and is protected.
+- Database migrations are reviewed/applied.
+- Social-auth callback URLs match production.
+- Mail configuration is correct.
+- Admin middleware protects admin routes.
+- Storage/cache/session configuration is appropriate.
+- Frontend assets are built.
+- Tests pass.
+
+Typical optimization commands may include standard Laravel cache/config commands as appropriate to the target deployment environment.
+
+---
+
+## Engineering Conventions
+
+1. Keep admin routes behind server-side middleware.
+2. Keep database changes migration-driven.
+3. Use Eloquent relationships/models instead of ad-hoc SQL where the existing architecture supports it.
+4. Preserve soft-delete behavior for menu items unless the domain requirement changes.
+5. Keep social/provider secrets in environment configuration.
+6. Keep controllers focused and move reusable business behavior into appropriate Laravel abstractions when complexity grows.
+7. Add tests for permission-sensitive workflows.
+8. Keep Blade views reusable instead of duplicating layout markup.
+9. Run PHP and frontend build/test checks before handoff.
+10. Treat permanent deletes as destructive operations.
+
+---
+
+## Project Status
+
+Bistro Bliss represents a completed full-stack Laravel project demonstrating customer-facing restaurant UX, authenticated account workflows, reservation management, protected administration, menu lifecycle management, notifications, contact handling, social authentication, relational persistence, and framework-level testing.
+
+---
 
 ## License
 
-The project uses the MIT license as defined by the Laravel project configuration.
+The project uses the **MIT License** as defined by its Laravel project configuration.
