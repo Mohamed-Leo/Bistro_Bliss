@@ -5,9 +5,57 @@
 Bistro Bliss combines a customer-facing restaurant website with authenticated customer functionality and a protected administration panel for menu management, reservations, users, notifications, and contact inquiries.
 
 ---
+
+## Product Visual Preview
+
+These are the **approved Bistro Bliss product visuals** hosted on Cloudinary. The gallery reflects the project's real customer and administration flows: restaurant discovery, menu browsing, table reservations, personal bookings, menu lifecycle management, booking review, users, and contact inquiries.
+
+### Customer Experience
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413583/ChatGPT_Image_Oct_8_2026_01_51_48_AM-1_wdmcrb.png" alt="Public Homepage" width="100%" />
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><strong>Menu Experience</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413583/ChatGPT_Image_Oct_8_2026_01_52_07_AM-2_kin4fc.png" alt="Menu Experience" /></td>
+    <td width="50%"><strong>Book A Table</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413590/ChatGPT_Image_Oct_8_2026_01_52_09_AM-3_kx04or.png" alt="Book A Table" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>My Bookings</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413592/ChatGPT_Image_Oct_8_2026_01_52_11_AM-4_ldyjoy.png" alt="My Bookings" /></td>
+    <td width="50%"></td>
+  </tr>
+</table>
+
+### Administration Experience
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413594/ChatGPT_Image_Oct_8_2026_01_52_13_AM-5_my7s5v.png" alt="Admin Dashboard" width="100%" />
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><strong>Menu Management</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413593/ChatGPT_Image_Oct_8_2026_01_52_15_AM-6_hgonri.png" alt="Menu Management" /></td>
+    <td width="50%"><strong>Deleted Items / Restore</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413595/ChatGPT_Image_Oct_8_2026_01_52_26_AM-7_wlj7ct.png" alt="Deleted Items / Restore" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>Booking Review</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413595/ChatGPT_Image_Oct_8_2026_01_52_34_AM-8_zmbynj.png" alt="Booking Review" /></td>
+    <td width="50%"><strong>Users Administration</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413578/ChatGPT_Image_Oct_8_2026_01_52_36_AM-9_ot6urz.png" alt="Users Administration" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>Contacts Administration</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791413582/ChatGPT_Image_Oct_8_2026_01_52_39_AM-10_usv7yp.png" alt="Contacts Administration" /></td>
+    <td width="50%"></td>
+  </tr>
+</table>
+
+> These visuals use sample content for portfolio and repository presentation. They do not expose production credentials, real customer records, or sensitive reservation data.
+
+
 ---
 
 ## Table of Contents
+
+- [Product Visual Preview](#product-visual-preview)
 
 - [Project Overview](#project-overview)
 - [User Roles and Experiences](#user-roles-and-experiences)
