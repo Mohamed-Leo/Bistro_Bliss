@@ -4,6 +4,13 @@
 
 Bistro Bliss combines a customer-facing restaurant website with authenticated customer functionality and a protected administration panel for menu management, reservations, users, notifications, and contact inquiries.
 
+
+<!-- PROJECT_BANNER_START -->
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791414969/ChatGPT_Image_Oct_8_2026_02_15_06_AM-2_ljxb1u.png" alt="Bistro Bliss Project Banner" width="100%" />
+</p>
+<!-- PROJECT_BANNER_END -->
+
 ---
 
 ## Product Visual Preview
