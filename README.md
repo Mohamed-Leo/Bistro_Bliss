@@ -5,15 +5,6 @@
 Bistro Bliss combines a customer-facing restaurant website with authenticated customer functionality and a protected administration panel for menu management, reservations, users, notifications, and contact inquiries.
 
 ---
-
-## Visual Preview
-
-These **source-based visual previews** were reconstructed from the current Blade routes/views, public restaurant styling, booking workflows, menu-management behavior, and protected admin interface. They are intended to make the finished application easier to understand from GitHub without requiring a configured local database.
-
-![Bistro Bliss home preview](docs/screenshots/bistro-home-preview.svg)
-
-![Bistro Bliss full-stack gallery](docs/screenshots/bistro-fullstack-gallery.svg)
-
 ---
 
 ## Table of Contents
